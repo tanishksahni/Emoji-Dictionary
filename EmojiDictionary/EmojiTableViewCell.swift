@@ -11,6 +11,13 @@ class EmojiTableViewCell: UITableViewCell {
     
     static let identifier = "EmojiTableViewCell"
     
+    var emojiSymbol: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.boldSystemFont(ofSize: 24)
+        return label
+    }()
+    
     var primaryText: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -29,20 +36,34 @@ class EmojiTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        contentView.addSubview(primaryText)
-        contentView.addSubview(secondaryText)
+        let contentStackView = UIStackView()
+        contentStackView.axis = .horizontal
+        contentStackView.spacing = 8
+        contentStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let textStackView = UIStackView()
+        textStackView.axis = .vertical
+        textStackView.spacing = 4
+        textStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        contentView.addSubview(contentStackView)
+        
+        contentStackView.addArrangedSubview(emojiSymbol)
+        contentStackView.addArrangedSubview(textStackView)
+        
+        textStackView.addArrangedSubview(primaryText)
+        textStackView.addArrangedSubview(secondaryText)
         
         NSLayoutConstraint.activate([
             
-            primaryText.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            primaryText.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            primaryText.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            contentStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            contentStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            contentStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            contentStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             
+            emojiSymbol.widthAnchor.constraint(equalToConstant: 40),
             
-            secondaryText.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            secondaryText.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            secondaryText.topAnchor.constraint(equalTo: primaryText.bottomAnchor, constant: 4),
-            secondaryText.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+            textStackView.trailingAnchor.constraint(equalTo: contentStackView.trailingAnchor)
         ])
     }
     
@@ -51,7 +72,8 @@ class EmojiTableViewCell: UITableViewCell {
     }
     
     func configure(with emoji: Emoji) {
-            primaryText.text = "\(emoji.symbol) ~ \(emoji.name)"
-            secondaryText.text = emoji.description
+        emojiSymbol.text = emoji.symbol
+        primaryText.text = emoji.name
+        secondaryText.text = emoji.description
     }
 }

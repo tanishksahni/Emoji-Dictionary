@@ -7,9 +7,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class EmojiViewController: UIViewController {
     
     let data = emojis
+    var isEditingEmoji: Bool = false
     
     var tableView: UITableView = {
         let table = UITableView()
@@ -24,7 +25,10 @@ class ViewController: UIViewController {
         title = "Emoji Dictionary"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode =  .always
+//        navigationItem.rightBarButtonItem = editButtonItem
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButtonTapped))
         
+          
         view.addSubview(tableView)
         tableView.frame = view.bounds
         tableView.dataSource = self
@@ -33,9 +37,10 @@ class ViewController: UIViewController {
         self.tableView.register(EmojiTableViewCell.self, forCellReuseIdentifier: EmojiTableViewCell.identifier)
     }
     
+    
 }
 
-extension ViewController: UITableViewDataSource {
+extension EmojiViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
         
@@ -45,14 +50,35 @@ extension ViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: EmojiTableViewCell.identifier, for: indexPath) as! EmojiTableViewCell
         let emoji = data[indexPath.row]
         cell.configure(with: emoji)
+        
+        cell.showsReorderControl = true
         return cell
     }
     
 }
 
-
-extension ViewController : UITableViewDelegate {
+extension EmojiViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedEmoji = emojis.remove(at: sourceIndexPath.row)
+        emojis.insert(movedEmoji, at: destinationIndexPath.row)
+    }
+    
+}
+
+
+
+extension EmojiViewController {
+    @objc func editButtonTapped() {
+        let tableViewEditingMode = tableView.isEditing
+        tableView.setEditing(!tableViewEditingMode, animated: true)
+        navigationItem.rightBarButtonItem?.title = tableView.isEditing ? "Done" : "Edit"
     }
 }
