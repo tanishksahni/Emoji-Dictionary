@@ -15,6 +15,7 @@
 		CEB2A5C42C762181000DB210 /* EmojiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2A5C32C762181000DB210 /* EmojiTableViewCell.swift */; };
 		CEB2A5C92C766AC7000DB210 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB2A5C72C766AC7000DB210 /* Main.storyboard */; };
 		CEB2A5CA2C766AC7000DB210 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB2A5C82C766AC7000DB210 /* LaunchScreen.storyboard */; };
+		CEB2A5CC2C76EED2000DB210 /* AddEmojiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2A5CB2C76EED2000DB210 /* AddEmojiViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CEB2A5C32C762181000DB210 /* EmojiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTableViewCell.swift; sourceTree = "<group>"; };
 		CEB2A5C72C766AC7000DB210 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CEB2A5C82C766AC7000DB210 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CEB2A5CB2C76EED2000DB210 /* AddEmojiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmojiViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				CEB2A5C32C762181000DB210 /* EmojiTableViewCell.swift */,
 				CEB2A5C82C766AC7000DB210 /* LaunchScreen.storyboard */,
 				CEB2A5C72C766AC7000DB210 /* Main.storyboard */,
+				CEB2A5CB2C76EED2000DB210 /* AddEmojiViewController.swift */,
 			);
 			path = EmojiDictionary;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				CEB2A5C42C762181000DB210 /* EmojiTableViewCell.swift in Sources */,
 				CE3BBF582C706497004AE477 /* Emoji.swift in Sources */,
 				CE3BBF462C706467004AE477 /* SceneDelegate.swift in Sources */,
+				CEB2A5CC2C76EED2000DB210 /* AddEmojiViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
