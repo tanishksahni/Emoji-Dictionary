@@ -19,6 +19,7 @@ class AddEmojiViewController: UIViewController {
         let textField = UITextField()
         textField.placeholder = "Emoji"
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.borderStyle = .roundedRect
         return textField
     }()
     
@@ -26,6 +27,7 @@ class AddEmojiViewController: UIViewController {
         let textField = UITextField()
         textField.placeholder = "Name"
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.borderStyle = .roundedRect
         return textField
     }()
     
@@ -33,6 +35,7 @@ class AddEmojiViewController: UIViewController {
         let textField = UITextField()
         textField.placeholder = "Description"
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.borderStyle = .roundedRect
         return textField
     }()
     
@@ -40,6 +43,7 @@ class AddEmojiViewController: UIViewController {
         let textField = UITextField()
         textField.placeholder = "Usage"
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.borderStyle = .roundedRect
         return textField
     }()
     
@@ -57,22 +61,22 @@ class AddEmojiViewController: UIViewController {
 //            emojiTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             emojiTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
             emojiTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            emojiTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 16),
+            emojiTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             emojiTextField.heightAnchor.constraint(equalToConstant: 34),
             
             nameTextField.topAnchor.constraint(equalTo: emojiTextField.bottomAnchor, constant: 20),
             nameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 16),
+            nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             nameTextField.heightAnchor.constraint(equalToConstant: 34),
             
             descriptionTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 20),
             descriptionTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            descriptionTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 16),
+            descriptionTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             descriptionTextField.heightAnchor.constraint(equalToConstant: 34),
             
             usageTextField.topAnchor.constraint(equalTo: descriptionTextField.bottomAnchor, constant: 20),
             usageTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            usageTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 16),
+            usageTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             usageTextField.heightAnchor.constraint(equalToConstant: 34),
             
         ])
